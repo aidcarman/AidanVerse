@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>AidanVerse</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Dynamic Image Gallery</title>
+      <style>
+          .image-container {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              max-width: 1000px; /* Set a maximum width for the gallery */
+              margin: auto; /* Center the gallery */
+          }
+          .gallery-item {
+              flex: 0 0 calc(33.33% - 25px); /* Adjust the width and margin as needed */
+              margin: 5px;
+              box-sizing: border-box;
+              overflow: hidden;
+              position: relative;
+              height: 400px;
+          }
+          .gallery-item img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+          }
+          .title {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              background-color: rgba(255, 255, 255, 0.8);
+              padding: 10px;
+              text-align: center;
+              font-weight: bold;
+              color: black;
+          }
+      </style>
+  </head>
+</head>
+<body class="w3-black w3-content" style="max-width:2000px">
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-black w3-hover-sand w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <a href="index.html" class="button-link">
+      <img src="transportation/1.jpg" alt="Transportation Image" style="width: 45%;" class="w3-round">
+    </a>    
+    <h4><b>AidanVerse</b></h4>
+    <p class="w3-text-grey">Designed by Aidan Peter</p>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#art" class="w3-bar-item w3-button w3-padding" onclick="toggleDropdown('art')">
+      <i class="fa fa-paint-brush fa-fw w3-margin-right"></i>Art <i id="art-caret" class="fa fa-caret-down"></i>
+    </a>
+    <div id="art-dropdown" style="display: none;">
+      <a href="frontend.html#transportation" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-margin-left">
+        <i class="fa fa-car fa-fw w3-margin-right"></i>Transportation
+      </a>
+      <a href="frontend.html#animals" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-margin-left">
+        <i class="fa fa-paw fa-fw w3-margin-right"></i>Animals
+      </a>
+      <a href="frontend.html#miscellaneous" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-margin-left">
+        <i class="fa fa-star fa-fw w3-margin-right"></i>Miscellaneous
+      </a>
+    </div>
+    <a href="maker.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-gear fa-fw w3-margin-right"></i>Designs</a>
+    <a href="outdoors.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-leaf fa-fw w3-margin-right"></i>Outdoor Adventures</a>
+    <a href="writing.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-pencil fa-fw w3-margin-right"></i>Writing Samples</a>
+    <a href="reading.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw w3-margin-right"></i>My Library</a>
+    <a href="about.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>About</a> 
+  </div>
+</nav>
+<script>
+  function toggleDropdown(id) {
+    var dropdown = document.getElementById(id + '-dropdown');
+    var caret = document.getElementById(id + '-caret');
+    
+    if (dropdown.style.display === 'none') {
+      dropdown.style.display = 'block';
+      caret.className = 'fa fa-caret-up';
+    } else {
+      dropdown.style.display = 'none';
+      caret.className = 'fa fa-caret-down';
+    }
+  }
+</script>
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+  <header id="portfolio">
+    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+      <div  style="text-align: center;">
+        <h1><b>Welcome to the AidanVerse Library!</b></h1>
+        <h3>Check out what I've been reading.</h3>
+      </div>
+    </div>
+  </header>
+
+
+<!----------------------------------------------------------->
+<!----------------------------------------------------------->
+<!----------------------------------------------------------->
+<!----------------------------------------------------------->
+  <!-- Subheading for Designs -->
+  <div id="designs" class="w3-container w3-padding" style="text-align: center;">
+  <body>
+      <!-- First Row -->
+      <div class="image-container">
+          <div class="gallery-item">
+              <img src="reading/1984.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('reading/1984.JPG', 'Lorem Ipsum')">
+              <div class="title">1984 by George Orwell</div>
+          </div>
+          <div class="gallery-item">
+              <img src="reading/Balcony.JPG" alt="Image 2" class="w3-hover-opacity" onclick="showImage('reading/Balcony.JPG', 'Lorem Ipsum')">
+              <div class="title">The Balcony by Jean Genet</div>
+          </div>
+          <div class="gallery-item">
+              <img src="reading/CamusEssays.JPG" alt="Image 3" class="w3-hover-opacity" onclick="showImage('reading/CamusEssays.JPG', 'Lorem Ipsum')">
+              <div class="title">Camus Essays edited by Germaine Brée</div>
+          </div>
+        </div>
+        <!-- Second Row -->
+        <div class="image-container">
+            <div class="gallery-item">
+                <img src="reading/CherryOrchard.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('reading/CherryOrchard.JPG', 'Lorem Ipsum')">
+                <div class="title">The Cherry Orchard by Anton Chekhov</div>
+            </div>
+            <div class="gallery-item">
+                <img src="reading/CommManifesto.JPG" alt="Image 2" class="w3-hover-opacity" onclick="showImage('reading/CommManifesto.JPG', 'Lorem Ipsum')">
+                <div class="title">The Communist Manifesto by Karl Marx and Freidrich Engels</div>
+            </div>
+            <div class="gallery-item">
+                <img src="reading/Design.JPG" alt="Image 3" class="w3-hover-opacity" onclick="showImage('reading/Design.JPG', 'Lorem Ipsum')">
+                <div class="title">The Design of Everyday Things by Don Norman</div>
+            </div>
+          </div>
+      <!-- Third Row -->
+      <div class="image-container">
+        <div class="gallery-item">
+            <img src="reading/DollsHouse.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('reading/DollsHouse.JPG', 'Lorem Ipsum')">
+            <div class="title">A Doll's House by Henrik Ibsen</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/Endgame.JPG" alt="Image 2" class="w3-hover-opacity" onclick="showImage('reading/Endgame.JPG', 'Lorem Ipsum')">
+            <div class="title">Endgame by Samuel Beckett</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/FarAway.JPG" alt="Image 3" class="w3-hover-opacity" onclick="showImage('reading/FarAway.JPG', 'Lorem Ipsum')">
+            <div class="title">Far Away by Caroyl Churchill</div>
+        </div>
+      </div>
+      <!-- Fourth Row -->
+      <div class="image-container">
+        <div class="gallery-item">
+            <img src="reading/Habit.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('reading/Habit.JPG', 'Lorem Ipsum')">
+            <div class="title">The Power of Habit by Charles Duhigg</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/Indigenous.JPG" alt="Image 2" class="w3-hover-opacity" onclick="showImage('reading/Indigenous.JPG', 'Lorem Ipsum')">
+            <div class="title">An Indigenous Peoples' History of the United States by Roxanne Dunbar-Ortiz</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/IngloriousEmpire.JPG" alt="Image 3" class="w3-hover-opacity" onclick="showImage('reading/IngloriousEmpire.JPG', 'Lorem Ipsum')">
+            <div class="title">Inglorious Empire by Shashi Tharoor</div>
+        </div>
+      </div>
+      <!-- Fifth Row -->
+      <div class="image-container">
+        <div class="gallery-item">
+            <img src="reading/JimCrow.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('reading/JimCrow.JPG', 'Lorem Ipsum')">
+            <div class="title">The New Jim Crow by Michelle Alexander</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/Jujutsu.JPG" alt="Image 2" class="w3-hover-opacity" onclick="showImage('reading/Jujutsu.JPG', 'Lorem Ipsum')">
+            <div class="title">Jujutsu Kaisen by Gege Akutami</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/LawInAmerica.JPG" alt="Image 3" class="w3-hover-opacity" onclick="showImage('reading/LawInAmerica.JPG', 'Lorem Ipsum')">
+            <div class="title">Law in America by Lawrence M Friedman</div>
+        </div>
+      </div>
+      <!-- Sixth Row -->
+      <div class="image-container">
+        <div class="gallery-item">
+            <img src="reading/LookBack.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('reading/LookBack.JPG', 'Lorem Ipsum')">
+            <div class="title">Look Back in Anger by John Osborne</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/Matti.JPG" alt="Image 2" class="w3-hover-opacity" onclick="showImage('reading/Matti.JPG', 'Lorem Ipsum')">
+            <div class="title">Mr. Puntila and His Man Matti by Bertolt Brecht</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/Meditations.JPG" alt="Image 3" class="w3-hover-opacity" onclick="showImage('reading/Meditations.JPG', 'Lorem Ipsum')">
+            <div class="title">Meditations by Marcus Aurelius</div>
+        </div>
+      </div>
+      <!-- Seventh Row -->
+      <div class="image-container">
+        <div class="gallery-item">
+            <img src="reading/Moonlight.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('reading/Moonlight.JPG', 'Lorem Ipsum')">
+            <div class="title">Moonlight by Harold Pinter</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/Nietzche.JPG" alt="Image 2" class="w3-hover-opacity" onclick="showImage('reading/Nietzche.JPG', 'Lorem Ipsum')">
+            <div class="title">Twilight of the Idols, The Antichrist, and Ecce Homo by Friedrich Nietzche</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/Pipeline.JPG" alt="Image 3" class="w3-hover-opacity" onclick="showImage('reading/Pipeline.JPG', 'Lorem Ipsum')">
+            <div class="title">How to Blow up a Pipeline by Andreas Malm</div>
+        </div>
+      </div>
+      <!-- Eighth Row -->
+      <div class="image-container">
+        <div class="gallery-item">
+            <img src="reading/Scissors.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('reading/Scissors.JPG', 'Lorem Ipsum')">
+            <div class="title">Running with Scissors by Augusten Burroughs</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/Sisyphus.JPG" alt="Image 2" class="w3-hover-opacity" onclick="showImage('reading/Sisyphus.JPG', 'Lorem Ipsum')">
+            <div class="title">The Myth of Sisyphus by Albert Camus</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/SixCharacters.JPG" alt="Image 3" class="w3-hover-opacity" onclick="showImage('reading/SixCharacters.JPG', 'Lorem Ipsum')">
+            <div class="title">Six Characters in Search of an Author by Luigi Pirandello</div>
+        </div>
+      </div>
+      <!-- Ninth Row -->
+      <div class="image-container">
+        <div class="gallery-item">
+            <img src="reading/TheLesson.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('reading/TheLesson.JPG', 'Lorem Ipsum')">
+            <div class="title">The Lesson by Eugène Ionesco</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/ThePrince.JPG" alt="Image 2" class="w3-hover-opacity" onclick="showImage('reading/ThePrince.JPG', 'Lorem Ipsum')">
+            <div class="title">The Prince by Niccolo Machiavelli</div>
+        </div>
+        <div class="gallery-item">
+            <img src="reading/Wolf.JPG" alt="Image 3" class="w3-hover-opacity" onclick="showImage('reading/Wolf.JPG', 'Lorem Ipsum')">
+            <div class="title">A Wolf at the Table by Augusten Burroughs</div>
+        </div>
+      </div>
+      <!-- Tenth Row -->
+      <div class="image-container">
+        <div class="gallery-item">
+            <img src="reading/Yerma.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('reading/Yerma.JPG', 'Lorem Ipsum')">
+            <div class="title">Yerma by Federico García Lorca</div>
+        </div>
+      </div>
+      </body>
+    </div>
+
+<!-- End page content -->
+</div>
+<div id="myModal" class="w3-modal">
+  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+  <div class="w3-modal-content w3-animate-zoom">
+      <img id="modalImage" style="width:100%">
+      <!-- Optionally, you can add a title and description here -->
+      <!--<div id="modalTitle" color = "black"></div>
+      <!- <div id="modalDescription"></div> -->
+  </div>
+</div>
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+function showImage(src, title) {
+  // Display the modal
+  document.getElementById('myModal').style.display = 'block';
+  
+  // Set the modal image source
+  document.getElementById('modalImage').src = src;
+}
+</script>
+
+</body>
+</html>
