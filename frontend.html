@@ -1,468 +1,436 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>AidanVerse</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-</style>
-<head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Dynamic Image Gallery</title>
-      <style>
-          .image-container {
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: space-between;
-              max-width: 1000px; /* Set a maximum width for the gallery */
-              margin: auto; /* Center the gallery */
-          }
-          .gallery-item {
-              flex: 0 0 calc(33.33% - 25px); /* Adjust the width and margin as needed */
-              margin: 5px;
-              box-sizing: border-box;
-              overflow: hidden;
-              position: relative;
-              height: 250px;
-          }
-          .gallery-item img {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-          }
-          .title {
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              width: 100%;
-              background-color: rgba(255, 255, 255, 0.8);
-              padding: 10px;
-              text-align: center;
-              font-weight: bold;
-              color: black;
-          }
-      </style>
-  </head>
-</head>
-<body class="w3-black w3-content" style="max-width:2000px">
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-black w3-hover-sand w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
-  <div class="w3-container">
-    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
-      <i class="fa fa-remove"></i>
-    </a>
-    <a href="index.html" class="button-link">
-      <img src="transportation/1.jpg" alt="Transportation Image" style="width: 45%;" class="w3-round">
-    </a>    
-    <h4><b>AidanVerse</b></h4>
-    <p class="w3-text-grey">Designed by Aidan Peter</p>
-  </div>
-  <div class="w3-bar-block">
-    <a href="#art" class="w3-bar-item w3-button w3-padding" onclick="toggleDropdown('art')">
-      <i class="fa fa-paint-brush fa-fw w3-margin-right"></i>Art <i id="art-caret" class="fa fa-caret-down"></i>
-    </a>
-    <div id="art-dropdown" style="display: none;">
-      <a href="#transportation" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-margin-left">
-        <i class="fa fa-car fa-fw w3-margin-right"></i>Transportation
-      </a>
-      <a href="#animals" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-margin-left">
-        <i class="fa fa-paw fa-fw w3-margin-right"></i>Animals
-      </a>
-      <a href="#miscellaneous" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-margin-left">
-        <i class="fa fa-star fa-fw w3-margin-right"></i>Miscellaneous
-      </a>
-    </div>
-    <a href="maker.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-gear fa-fw w3-margin-right"></i>Designs</a>
-    <a href="outdoors.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-leaf fa-fw w3-margin-right"></i>Outdoor Adventures</a>
-    <a href="writing.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-pencil fa-fw w3-margin-right"></i>Writing Samples</a>
-    <a href="reading.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw w3-margin-right"></i>My Library</a>
-    <a href="about.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>About</a> 
-  </div>
-</nav>
-<script>
-  function toggleDropdown(id) {
-    var dropdown = document.getElementById(id + '-dropdown');
-    var caret = document.getElementById(id + '-caret');
-    
-    if (dropdown.style.display === 'none') {
-      dropdown.style.display = 'block';
-      caret.className = 'fa fa-caret-up';
-    } else {
-      dropdown.style.display = 'none';
-      caret.className = 'fa fa-caret-down';
+  <title>AidanVerse</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <style>
+    body,h1,h2,h3,h4,h5,h6 { font-family: "Raleway", sans-serif; }
+    body { background: #000; }
+
+    /* Gallery layout */
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 10px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
-  }
-</script>
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    .gallery-item {
+      flex: 0 0 calc(33.333% - 10px);
+      box-sizing: border-box;
+      overflow: hidden;
+      position: relative;
+      height: 250px;
+      border-radius: 10px;
+    }
+    @media (max-width: 950px) {
+      .gallery-item { flex: 0 0 calc(50% - 10px); }
+    }
+    @media (max-width: 600px) {
+      .gallery-item { flex: 0 0 100%; }
+    }
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px">
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+    .title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255,255,255,0.86);
+      padding: 10px 12px;
+      text-align: center;
+      font-weight: 700;
+      color: #000;
+      letter-spacing: 0.2px;
+    }
 
-  <!-- Header -->
-  <header id="portfolio">
-    <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
-    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    /* Top controls */
+    .controls-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 8px;
+      margin-bottom: 14px;
+    }
+    .filter-btn {
+      border: 1px solid rgba(255,255,255,0.25);
+      background: transparent;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 120ms ease;
+      font-size: 14px;
+    }
+    .filter-btn:hover {
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* Search */
+    .search-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+    .search-input {
+      width: min(650px, 92vw);
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      outline: none;
+    }
+    .search-input::placeholder {
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* Section headers */
+    .section-title {
+      margin-top: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Optional: make anchored scroll nicer */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="w3-black w3-content" style="max-width:2000px">
+
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-collapse w3-black w3-hover-sand w3-animate-left" style="z-index:3;width:300px;" id="mySidebar">
+    <br />
     <div class="w3-container">
-      <div  style="text-align: center;">
+      <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+        <i class="fa fa-remove"></i>
+      </a>
+      <a href="index.html" class="button-link">
+        <img src="transportation/1.jpg" alt="Transportation Image" style="width:45%;" class="w3-round" />
+      </a>
+      <h4><b>AidanVerse</b></h4>
+      <p class="w3-text-grey">Designed by Aidan Peter</p>
+    </div>
+
+    <div class="w3-bar-block">
+      <a href="#art" class="w3-bar-item w3-button w3-padding" onclick="toggleDropdown('art')">
+        <i class="fa fa-paint-brush fa-fw w3-margin-right"></i>Art <i id="art-caret" class="fa fa-caret-down"></i>
+      </a>
+
+      <div id="art-dropdown" style="display:none;">
+        <a href="#recent-work" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-margin-left">
+          <i class="fa fa-bolt fa-fw w3-margin-right"></i>Recent Work
+        </a>
+        <a href="#transportation" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-margin-left">
+          <i class="fa fa-car fa-fw w3-margin-right"></i>Transportation
+        </a>
+        <a href="#animals" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-margin-left">
+          <i class="fa fa-paw fa-fw w3-margin-right"></i>Animals
+        </a>
+        <a href="#miscellaneous" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-margin-left">
+          <i class="fa fa-star fa-fw w3-margin-right"></i>Miscellaneous
+        </a>
+      </div>
+
+      <a href="maker.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-gear fa-fw w3-margin-right"></i>Designs</a>
+      <a href="outdoors.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-leaf fa-fw w3-margin-right"></i>Outdoor Adventures</a>
+      <a href="writing.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-pencil fa-fw w3-margin-right"></i>Writing Samples</a>
+      <a href="reading.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-book fa-fw w3-margin-right"></i>My Library</a>
+      <a href="about.html" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>About</a>
+    </div>
+  </nav>
+
+  <script>
+    function toggleDropdown(id) {
+      var dropdown = document.getElementById(id + "-dropdown");
+      var caret = document.getElementById(id + "-caret");
+      if (dropdown.style.display === "none" || dropdown.style.display === "") {
+        dropdown.style.display = "block";
+        caret.className = "fa fa-caret-up";
+      } else {
+        dropdown.style.display = "none";
+        caret.className = "fa fa-caret-down";
+      }
+    }
+  </script>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:300px">
+
+    <!-- Header -->
+    <header id="portfolio">
+      <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity" alt="" /></a>
+      <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+
+      <div class="w3-container" style="text-align:center;">
         <h1><b>Welcome to the Artist's Realm.</b></h1>
-      </div>
-    </div>
-  </header>
 
-<!----------------------------------------------------------->
-<!----------------------------------------------------------->
-<!----------------------------------------------------------->
-<!----------------------------------------------------------->
-  <!-- Subheading for Transportation -->
-  <div id="transportation" class="w3-container w3-padding" style="text-align: center;">
-    <h2><u><b>Transportation</b></u></h2>
-  <body>
-  <!-- First Row -->
-  <div class="image-container">
-      <div class="gallery-item">
-          <img src="transportation/1.jpg" alt="Image 1" class="w3-hover-opacity" onclick="showImage('transportation/1.jpg', 'Abduction')">
-          <div class="title">Abduction</div>
+        <!-- Search + Filter Buttons (these do NOT hide sections; they only scroll) -->
+        <div class="controls-wrap">
+          <div class="search-row">
+            <input id="searchInput" class="search-input" type="text" placeholder="Search titles (e.g., Ferrari, Drone, Eagle)..." />
+          </div>
+
+          <div class="filter-row">
+            <button class="filter-btn" type="button" onclick="scrollToSection('recent-work')"><i class="fa fa-bolt"></i> Recent Work</button>
+            <button class="filter-btn" type="button" onclick="scrollToSection('transportation')"><i class="fa fa-car"></i> Transportation</button>
+            <button class="filter-btn" type="button" onclick="scrollToSection('animals')"><i class="fa fa-paw"></i> Animals</button>
+            <button class="filter-btn" type="button" onclick="scrollToSection('miscellaneous')"><i class="fa fa-star"></i> Misc</button>
+            <button class="filter-btn" type="button" onclick="clearSearch()"><i class="fa fa-times"></i> Clear Search</button>
+          </div>
+        </div>
+
       </div>
-      <div class="gallery-item">
-          <img src="transportation/2.jpg" alt="Image 2" class="w3-hover-opacity" onclick="showImage('transportation/2.jpg', 'Spiders<')">
-          <div class="title">Spiders</div>
-      </div>
-      <div class="gallery-item">
-          <img src="transportation/3.jpg" alt="Image 3" class="w3-hover-opacity" onclick="showImage('transportation/3.jpg', 'Atlantis Transport')">
-          <div class="title">Atlantis Transport</div>
-      </div>
+    </header>
+
+    <!-- Sections render here -->
+    <div id="sectionsRoot"></div>
+
   </div>
-  
-  <!-- Second Row -->
-  <div class="image-container">
-      <div class="gallery-item">
-          <img src="transportation/4.jpg" alt="Image 4" class="w3-hover-opacity" onclick="showImage('transportation/4.jpg', 'Modular Truck Concept')">
-          <div class="title">Modular Truck Concept</div>
-      </div>
-      <div class="gallery-item">
-          <img src="transportation/5.jpg" alt="Image 5" class="w3-hover-opacity" onclick="showImage('transportation/5.jpg', 'Drone Ideation')">
-          <div class="title">Drone Ideation</div>
-      </div>
-      <div class="gallery-item">
-          <img src="transportation/6.jpg" alt="Image 6" class="w3-hover-opacity" onclick="showImage('transportation/6.jpg', 'Delivery Snapshot')">
-          <div class="title">Delivery Snapshot</div>
-      </div>
-  </div>
-  <!-- Third Row -->
-  <div class="image-container">
-    <div class="gallery-item">
-        <img src="transportation/7.jpg" alt="Image 4" class="w3-hover-opacity" onclick="showImage('transportation/7.jpg', 'Drone Delivery Sequence')">
-        <div class="title">Bladeless Drone Concept</div>
-    </div>
-    <div class="gallery-item">
-        <img src="transportation/8.jpg" alt="Image 5" class="w3-hover-opacity" onclick="showImage('transportation/8.jpg', 'Lorem Ipsum')">
-        <div class="title">Drone Delivery Sequence</div>
-    </div>
-    <div class="gallery-item">
-        <img src="transportation/9.jpg" alt="Image 6" class="w3-hover-opacity" onclick="showImage('transportation/9.jpg', 'Transformer Buggy')">
-        <div class="title">Transformer Buggy</div>
-    </div>
-  </div>
-  <!-- Fourth Row -->
-  <div class="image-container">
-    <div class="gallery-item">
-        <img src="transportation/10.jpg" alt="Image 4" class="w3-hover-opacity" onclick="showImage('transportation/10.jpg', 'Personal Jet Transport')">
-        <div class="title">Personal Jet Transport</div>
-    </div>
-    <div class="gallery-item">
-        <img src="transportation/11.jpg" alt="Image 5" class="w3-hover-opacity" onclick="showImage('transportation/11.jpg', 'Train Station')">
-        <div class="title">Train Station</div>
-    </div>
-    <div class="gallery-item">
-        <img src="transportation/12.jpg" alt="Image 6" class="w3-hover-opacity" onclick="showImage('transportation/12.jpg', 'Bladeless Plane')">
-        <div class="title">Bladeless Plane</div>
-    </div>
-  </div>
-  <!-- Fifth Row -->
-  <div class="image-container">
-    <div class="gallery-item">
-        <img src="transportation/13.jpg" alt="Image 4" class="w3-hover-opacity" onclick="showImage('transportation/13.jpg', 'Fjallen Process')">
-        <div class="title">Fjallen Process</div>
-    </div>
-    <div class="gallery-item">
-        <img src="transportation/14.jpg" alt="Image 5" class="w3-hover-opacity" onclick="showImage('transportation/14.jpg', 'Fjallen Krangenwagen')">
-        <div class="title">Fjallen Krangenwagen</div>
-    </div>
-    <div class="gallery-item">
-        <img src="transportation/15.jpg" alt="Image 6" class="w3-hover-opacity" onclick="showImage('transportation/15.jpg', 'Naboo Fighter Concept')">
-        <div class="title">Naboo Fighter Concept</div>
-    </div>
-  </div>
-  <!-- Sixth Row -->
-  <div class="image-container">
-    <div class="gallery-item">
-        <img src="transportation/16.JPG" alt="Image 4" class="w3-hover-opacity" onclick="showImage('transportation/16.JPG', 'F40')">
-        <div class="title">F40</div>
-    </div>
-    <div class="gallery-item">
-        <img src="transportation/17.jpg" alt="Image 5" class="w3-hover-opacity" onclick="showImage('transportation/17.jpg', 'AMG GT')">
-        <div class="title">AMG GT</div>
-    </div>
-    <div class="gallery-item">
-      <img src="transportation/25.jpg" alt="Image 4" class="w3-hover-opacity" onclick="showImage('transportation/25.jpg', 'Concept Board')">
-      <div class="title">Concept Board</div>
-    </div>
-  </div>
-  <!-- Seventh Row -->
-  <div class="image-container">
-    <div class="gallery-item">
-        <img src="transportation/19.PNG" alt="Image 4" class="w3-hover-opacity" onclick="showImage('transportation/19.PNG', 'Chrysler Streamline')">
-        <div class="title">Chrysler Streamline</div>
-    </div>
-    <div class="gallery-item">
-        <img src="transportation/20.jpg" alt="Image 5" class="w3-hover-opacity" onclick="showImage('transportation/20.jpg', '911 Race')">
-        <div class="title">911 Race</div>
-    </div>
-    <div class="gallery-item">
-        <img src="transportation/21.JPG" alt="Image 6" class="w3-hover-opacity" onclick="showImage('transportation/21.JPG', '720S')">
-        <div class="title">720S</div>
-    </div>
-  </div>
-  <!-- Eighth Row -->
-  <div class="image-container">
-    <div class="gallery-item">
-        <img src="transportation/22.jpg" alt="Image 4" class="w3-hover-opacity" onclick="showImage('transportation/22.jpg', '911')">
-        <div class="title">911</div>
-    </div>
-    <div class="gallery-item">
-        <img src="transportation/23.JPG" alt="Image 5" class="w3-hover-opacity" onclick="showImage('transportation/23.JPG', 'Ferrari')">
-        <div class="title">Ferrari</div>
-    </div>
-    <div class="gallery-item">
-        <img src="transportation/24.jpg" alt="Image 6" class="w3-hover-opacity" onclick="showImage('transportation/24.jpg', 'ZEI Boat Design')">
-        <div class="title">ZEI Boat Design</div>
+
+  <!-- Modal -->
+  <div id="myModal" class="w3-modal">
+    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+    <div class="w3-modal-content w3-animate-zoom">
+      <img id="modalImage" style="width:100%" alt="" />
     </div>
   </div>
 
-  <!-- Repeat the structure for additional rows -->
-  
-  </body>
-  </div>
-      
+  <script>
+    // --- Sidebar open/close ---
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
 
-<!----------------------------------------------------------->
-<!----------------------------------------------------------->
-<!----------------------------------------------------------->
-<!----------------------------------------------------------->
-  <!-- Subheading for Designs -->
-  <div id="animals" class="w3-container w3-padding" style="text-align: center;">
-    <h2><u><b>Animals</b></u></h2>
-  <body>
-      <!-- First Row -->
-      <div class="image-container">
-          <div class="gallery-item">
-              <img src="animals/a1.jpg" alt="Image 1" class="w3-hover-opacity" onclick="showImage('animals/a1.jpg', 'Lorem Ipsum')">
-              <div class="title">Plastic Death</div>
-          </div>
-          <div class="gallery-item">
-              <img src="animals/a2.jpg" alt="Image 2" class="w3-hover-opacity" onclick="showImage('animals/a2.jpg', 'Lorem Ipsum')">
-              <div class="title">Rainbow Crab</div>
-          </div>
-          <div class="gallery-item">
-              <img src="animals/a3.jpg" alt="Image 3" class="w3-hover-opacity" onclick="showImage('animals/a3.jpg', 'Lorem Ipsum')">
-              <div class="title">Save the Turtles</div>
-          </div>
-      </div>
-      
-      <!-- Second Row -->
-      <div class="image-container">
-        <div class="gallery-item">
-          <img src="animals/a15.jpg" alt="Image 6" class="w3-hover-opacity" onclick="showImage('animals/a15.jpg', 'Lorem Ipsum')">
-          <div class="title">Bald Eagle</div>
-          </div>
-          <div class="gallery-item">
-              <img src="animals/a5.jpg" alt="Image 5" class="w3-hover-opacity" onclick="showImage('animals/a5.jpg', 'Lorem Ipsum')">
-              <div class="title">Elegant Egret</div>
-          </div>
-          <div class="gallery-item">
-              <img src="animals/a6.JPG" alt="Image 6" class="w3-hover-opacity" onclick="showImage('animals/a6.JPG', 'Lorem Ipsum')">
-              <div class="title">Birdie!</div>
-          </div>
-      </div>
-      <!-- Third Row -->
-      <div class="image-container">
-        <div class="gallery-item">
-            <img src="animals/a7.JPG" alt="Image 4" class="w3-hover-opacity" onclick="showImage('animals/a7.JPG', 'Lorem Ipsum')">
-            <div class="title">Monarch Butterfly</div>
-        </div>
-        <div class="gallery-item">
-            <img src="animals/a8.JPG" alt="Image 5" class="w3-hover-opacity" onclick="showImage('animals/a8.JPG', 'Lorem Ipsum')">
-            <div class="title">Little Birdie!</div>
-        </div>
-        <div class="gallery-item">
-            <img src="animals/a9.jpg" alt="Image 6" class="w3-hover-opacity" onclick="showImage('animals/a9.jpg', 'Lorem Ipsum')">
-            <div class="title">Big Bad Shark</div>
-        </div>
-      </div>
-      <!-- Fourth Row -->
-      <div class="image-container">
-        <div class="gallery-item">
-            <img src="animals/a10.jpg" alt="Image 4" class="w3-hover-opacity" onclick="showImage('animals/a10.jpg', 'Lorem Ipsum')">
-            <div class="title">A Scary-Looking Dragon</div>
-        </div>
-        <div class="gallery-item">
-            <img src="animals/a11.jpg" alt="Image 5" class="w3-hover-opacity" onclick="showImage('animals/a11.jpg', 'Lorem Ipsum')">
-            <div class="title">Goodbye</div>
-        </div>
-        <div class="gallery-item">
-            <img src="animals/a12.jpg" alt="Image 6" class="w3-hover-opacity" onclick="showImage('animals/a12.jpg', 'Lorem Ipsum')">
-            <div class="title">Save the Eagles</div>
-        </div>
-      </div>
-      <!-- Repeat the structure for additional rows -->
-      
-      </body>
-      </div>
-<!----------------------------------------------------------->
-<!----------------------------------------------------------->
-<!----------------------------------------------------------->
-<!----------------------------------------------------------->
-  <!-- Subheading for Miscellaneous -->
-  <div id="miscellaneous" class="w3-container w3-padding" style="text-align: center;">
-    <h2><u><b>Miscellaneous</b></u></h2>
-    <body>
-      <!-- First Row -->
-      <div class="image-container">
-          <div class="gallery-item">
-              <img src="miscellaneous/m1.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('miscellaneous/m1.JPG', 'Lorem Ipsum')">
-              <div class="title">Favorite Four</div>
-          </div>
-          <div class="gallery-item">
-              <img src="miscellaneous/m2.jpg" alt="Image 2" class="w3-hover-opacity" onclick="showImage('miscellaneous/m2.jpg', 'Lorem Ipsum')">
-              <div class="title">Senior Class Shirt Design</div>
-          </div>
-          <div class="gallery-item">
-              <img src="miscellaneous/m3.jpg" alt="Image 3" class="w3-hover-opacity" onclick="showImage('miscellaneous/m3.jpg', 'Lorem Ipsum')">
-              <div class="title">FlowerGirl</div>
-          </div>
-      </div>
-      <!-- Second Row -->
-      <div class="image-container">
-        <div class="gallery-item">
-            <img src="miscellaneous/m4.jpg" alt="Image 1" class="w3-hover-opacity" onclick="showImage('miscellaneous/m4.jpg', 'Lorem Ipsum')">
-            <div class="title">A Weird Experiment</div>
-        </div>
-        <div class="gallery-item">
-            <img src="miscellaneous/m5.jpg" alt="Image 2" class="w3-hover-opacity" onclick="showImage('miscellaneous/m5.jpg', 'Lorem Ipsum')">
-            <div class="title">Astroworld</div>
-        </div>
-        <div class="gallery-item">
-            <img src="miscellaneous/m6.JPG" alt="Image 3" class="w3-hover-opacity" onclick="showImage('miscellaneous/m6.JPG', 'Lorem Ipsum')">
-            <div class="title">Gandhi</div>
-        </div>
-      </div>
-      <!-- Third Row -->
-      <div class="image-container">
-        <div class="gallery-item">
-            <img src="miscellaneous/m19.JPG" alt="Image 1" class="w3-hover-opacity" onclick="showImage('miscellaneous/m19.JPG', 'Lorem Ipsum')">
-            <div class="title">Yearbook Cover</div>
-        </div>
-        <div class="gallery-item">
-            <img src="miscellaneous/m8.jpeg" alt="Image 2" class="w3-hover-opacity" onclick="showImage('miscellaneous/m8.jpeg', 'Lorem Ipsum')">
-            <div class="title">Tyler the Creator</div>
-        </div>
-        <div class="gallery-item">
-            <img src="miscellaneous/m9.jpg" alt="Image 3" class="w3-hover-opacity" onclick="showImage('miscellaneous/m9.jpg', 'Lorem Ipsum')">
-            <div class="title">Travis Scott</div>
-        </div>
-      </div>
-      <!-- Fourth Row -->
-      <div class="image-container">
-        <div class="gallery-item">
-            <img src="miscellaneous/m10.jpg" alt="Image 1" class="w3-hover-opacity" onclick="showImage('miscellaneous/m10.jpg', 'Lorem Ipsum')">
-            <div class="title">Jesus With His Cross</div>
-        </div>
-        <div class="gallery-item">
-            <img src="miscellaneous/m11.jpg" alt="Image 2" class="w3-hover-opacity" onclick="showImage('miscellaneous/m11.jpg', 'Lorem Ipsum')">
-            <div class="title">School "Aliens" Mural</div>
-        </div>
-        <div class="gallery-item">
-            <img src="miscellaneous/m12.JPG" alt="Image 3" class="w3-hover-opacity" onclick="showImage('miscellaneous/m12.JPG', 'Lorem Ipsum')">
-            <div class="title">Kathakali</div>
-        </div>
-      </div>
-      <!-- Fifth Row -->
-      <div class="image-container">
-        <div class="gallery-item">
-            <img src="miscellaneous/m13.jpg" alt="Image 1" class="w3-hover-opacity" onclick="showImage('miscellaneous/m13.jpg', 'Lorem Ipsum')">
-            <div class="title">Communication Journal Cover Designs</div>
-        </div>
-        <div class="gallery-item">
-            <img src="miscellaneous/m14.jpg" alt="Image 2" class="w3-hover-opacity" onclick="showImage('miscellaneous/m14.jpg', 'Lorem Ipsum')">
-            <div class="title">WorldView</div>
-        </div>
-        <div class="gallery-item">
-            <img src="miscellaneous/m15.jpg" alt="Image 3" class="w3-hover-opacity" onclick="showImage('miscellaneous/m15.jpg', 'Lorem Ipsum')">
-            <div class="title">Student Panel Logo Graphic Design</div>
-        </div>
-      </div>
-      <!-- Sixth Row -->
-      <div class="image-container">
-        <div class="gallery-item">
-            <img src="miscellaneous/m16.jpg" alt="Image 1" class="w3-hover-opacity" onclick="showImage('miscellaneous/m16.jpg', 'Lorem Ipsum')">
-            <div class="title">Jesus in the Desert</div>
-        </div>
-        <div class="gallery-item">
-            <img src="miscellaneous/m17.png" alt="Image 2" class="w3-hover-opacity" onclick="showImage('miscellaneous/m17.png', 'Lorem Ipsum')">
-            <div class="title">Frazzling Facade</div>
-        </div>
-        <div class="gallery-item">
-            <img src="miscellaneous/m18.png" alt="Image 3" class="w3-hover-opacity" onclick="showImage('miscellaneous/m18.png', 'Lorem Ipsum')">
-            <div class="title">Big Brother</div>
-        </div>
-      </div>
-   <!-- Repeat the structure for additional rows -->
-  
-  </body>
-</div>
+    // --- Modal show ---
+    function showImage(src) {
+      document.getElementById("myModal").style.display = "block";
+      document.getElementById("modalImage").src = src;
+    }
 
+    // --- Scroll "filters" (no hiding, only scroll) ---
+    function scrollToSection(sectionId) {
+      const el = document.getElementById(sectionId);
+      if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
 
+    // --- Data-driven content (THIS is the big reset) ---
+    const SECTIONS = [
+      {
+        id: "recent-work",
+        title: "Recent Work",
+        items: [
+          // Put your actual recent pieces here. I used existing images as defaults so it’s not empty.
+          { src: "miscellaneous/NoahsArk.jpeg", title: "Noah's Ark" },
+          { src: "miscellaneous/MrSmooth.jpeg", title: "Mr. Smooth" },
+          { src: "miscellaneous/WeatherVane.jpeg", title: "Weather Vane" },
+          { src: "miscellaneous/JesusTakeTheWheel.jpeg", title: "Jesus Take the Wheel" },
+          { src: "miscellaneous/LampoonFrame.jpeg", title: "Lampoon Frame" },
+          { src: "miscellaneous/RoadTrip.jpeg", title: "Road Trip" },
+          { src: "miscellaneous/June.jpeg", title: "June" },
+          { src: "miscellaneous/IShowSpeed.jpg", title: "IShowSpeed" },
+          { src: "miscellaneous/TheWeeknd.jpg", title: "The Weeknd" }
+        ]
+      },
+      {
+        id: "transportation",
+        title: "Transportation",
+        items: [
+          { src: "transportation/1.jpg", title: "Abduction" },
+          { src: "transportation/2.jpg", title: "Spiders" },
+          { src: "transportation/3.jpg", title: "Atlantis Transport" },
+          { src: "transportation/4.jpg", title: "Modular Truck Concept" },
+          { src: "transportation/5.jpg", title: "Drone Ideation" },
+          { src: "transportation/6.jpg", title: "Delivery Snapshot" },
+          { src: "transportation/7.jpg", title: "Bladeless Drone Concept" },
+          { src: "transportation/8.jpg", title: "Drone Delivery Sequence" },
+          { src: "transportation/9.jpg", title: "Transformer Buggy" },
+          { src: "transportation/10.jpg", title: "Personal Jet Transport" },
+          { src: "transportation/11.jpg", title: "Train Station" },
+          { src: "transportation/12.jpg", title: "Bladeless Plane" },
+          { src: "transportation/13.jpg", title: "Fjallen Process" },
+          { src: "transportation/14.jpg", title: "Fjallen Krangenwagen" },
+          { src: "transportation/15.jpg", title: "Naboo Fighter Concept" },
+          { src: "transportation/16.JPG", title: "F40" },
+          { src: "transportation/17.jpg", title: "AMG GT" },
+          { src: "transportation/25.jpg", title: "Concept Board" },
+          { src: "transportation/19.PNG", title: "Chrysler Streamline" },
+          { src: "transportation/20.jpg", title: "911 Race" },
+          { src: "transportation/21.JPG", title: "720S" },
+          { src: "transportation/22.jpg", title: "911" },
+          { src: "transportation/23.JPG", title: "Ferrari" },
+          { src: "transportation/24.jpg", title: "ZEI Boat Design" }
+        ]
+      },
+      {
+        id: "animals",
+        title: "Animals",
+        items: [
+          { src: "animals/a1.jpg", title: "Plastic Death" },
+          { src: "animals/a2.jpg", title: "Rainbow Crab" },
+          { src: "animals/a3.jpg", title: "Save the Turtles" },
+          { src: "animals/a15.jpg", title: "Bald Eagle" },
+          { src: "animals/a5.jpg", title: "Elegant Egret" },
+          { src: "animals/a6.JPG", title: "Birdie!" },
+          { src: "animals/a7.JPG", title: "Monarch Butterfly" },
+          { src: "animals/a8.JPG", title: "Little Birdie!" },
+          { src: "animals/a9.jpg", title: "Big Bad Shark" },
+          { src: "animals/a10.jpg", title: "A Scary-Looking Dragon" },
+          { src: "animals/a11.jpg", title: "Goodbye" },
+          { src: "animals/a12.jpg", title: "Save the Eagles" }
+        ]
+      },
+      {
+        id: "miscellaneous",
+        title: "Miscellaneous",
+        items: [
+          { src: "miscellaneous/m1.JPG", title: "Favorite Four" },
+          { src: "miscellaneous/m2.jpg", title: "Senior Class Shirt Design" },
+          { src: "miscellaneous/m3.jpg", title: "FlowerGirl" },
+          { src: "miscellaneous/m4.jpg", title: "A Weird Experiment" },
+          { src: "miscellaneous/m5.jpg", title: "Astroworld" },
+          { src: "miscellaneous/m6.JPG", title: "Gandhi" },
+          { src: "miscellaneous/m19.JPG", title: "Yearbook Cover" },
+          { src: "miscellaneous/m8.jpeg", title: "Tyler the Creator" },
+          { src: "miscellaneous/m9.jpg", title: "Travis Scott" },
+          { src: "miscellaneous/m10.jpg", title: "Jesus With His Cross" },
+          { src: "miscellaneous/m11.jpg", title: 'School "Aliens" Mural' },
+          { src: "miscellaneous/m12.JPG", title: "Kathakali" },
+          { src: "miscellaneous/m13.jpg", title: "Communication Journal Cover Designs" },
+          { src: "miscellaneous/m14.jpg", title: "WorldView" },
+          { src: "miscellaneous/m15.jpg", title: "Student Panel Logo Graphic Design" },
+          { src: "miscellaneous/m16.jpg", title: "Jesus in the Desert" },
+          { src: "miscellaneous/m17.png", title: "Frazzling Facade" },
+          { src: "miscellaneous/m18.png", title: "Big Brother" },
+          { src: "miscellaneous/WeatherVane.jpeg", title: "Weather Vane" },
+          { src: "miscellaneous/OwlPoster.jpeg", title: "Owl Poster" },
+          { src: "miscellaneous/ArrestedDevelopment.jpeg", title: "Arrested Development" },
+          { src: "miscellaneous/NoahsArk.jpeg", title: "Noah's Ark" },
+          { src: "miscellaneous/Pleiades.jpeg", title: "Pleiades" },
+          { src: "miscellaneous/CIIVP.jpeg", title: "CIIVP" },
+          { src: "miscellaneous/Booty.jpeg", title: "Booty" },
+          { src: "miscellaneous/FailedProposal.jpeg", title: "Failed Proposal" },
+          { src: "miscellaneous/MrSmooth.jpeg", title: "Mr. Smooth" },
+          { src: "miscellaneous/MushroomMan.jpeg", title: "Mushroom Man" },
+          { src: "miscellaneous/Smoove.jpeg", title: "Smoove" },
+          { src: "miscellaneous/JesusTakeTheWheel.jpeg", title: "Jesus Take the Wheel" },
+          { src: "miscellaneous/LampoonFrame.jpeg", title: "Lampoon Frame" },
+          { src: "miscellaneous/LampysGraduation.jpeg", title: "Lampy's Graduation" },
+          { src: "miscellaneous/Cool.jpeg", title: "Cool" },
+          { src: "miscellaneous/EyeDrop.jpeg", title: "Eye Drop" },
+          { src: "miscellaneous/LampyHalloween.jpeg", title: "Lampy Halloween" },
+          { src: "miscellaneous/SkinOfMyTeeth.jpeg", title: "Skin of My Teeth" },
+          { src: "miscellaneous/RoadTrip.jpeg", title: "Road Trip" },
+          { src: "miscellaneous/June.jpeg", title: "June" },
+          { src: "miscellaneous/IShowSpeed.jpg", title: "IShowSpeed" },
+          { src: "miscellaneous/TheWeeknd.jpg", title: "The Weeknd" }
 
-</div>
-<div id="myModal" class="w3-modal">
-  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
-  <div class="w3-modal-content w3-animate-zoom">
-      <img id="modalImage" style="width:100%">
-      <!-- Optionally, you can add a title and description here -->
-      <!--<div id="modalTitle" color = "black"></div>
-      <!- <div id="modalDescription"></div> -->
-  </div>
-</div>
-<script>
-// Script to open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
-function showImage(src, title) {
-  // Display the modal
-  document.getElementById('myModal').style.display = 'block';
-  
-  // Set the modal image source
-  document.getElementById('modalImage').src = src;
-  
-  // Optionally, you can set the title and description in the modal
-  // document.getElementById('modalTitle').innerHTML = title;
-  // document.getElementById('modalDescription').innerHTML = description;
-}
-</script>
+        ]
+      }
+    ];
+
+    function renderSections() {
+      const root = document.getElementById("sectionsRoot");
+      root.innerHTML = "";
+
+      SECTIONS.forEach(section => {
+        const wrap = document.createElement("div");
+        wrap.id = section.id;
+        wrap.className = "w3-container w3-padding";
+        wrap.style.textAlign = "center";
+
+        const h2 = document.createElement("h2");
+        h2.className = "section-title";
+        h2.innerHTML = `<u><b>${section.title}</b></u>`;
+        wrap.appendChild(h2);
+
+        const container = document.createElement("div");
+        container.className = "image-container";
+
+        section.items.forEach(item => {
+          const card = document.createElement("div");
+          card.className = "gallery-item";
+          card.dataset.title = (item.title || "").toLowerCase();
+          card.dataset.section = section.id;
+
+          const img = document.createElement("img");
+          img.src = item.src;
+          img.alt = item.title || "";
+          img.className = "w3-hover-opacity";
+          img.onclick = () => showImage(item.src);
+
+          const title = document.createElement("div");
+          title.className = "title";
+          title.textContent = item.title || "";
+
+          card.appendChild(img);
+          card.appendChild(title);
+          container.appendChild(card);
+        });
+
+        wrap.appendChild(container);
+        root.appendChild(wrap);
+      });
+    }
+
+    // --- Search: hides only non-matching gallery items, NOT whole sections ---
+    function applySearch(query) {
+      const q = (query || "").trim().toLowerCase();
+      const items = document.querySelectorAll(".gallery-item");
+
+      items.forEach(item => {
+        const title = item.dataset.title || "";
+        item.style.display = q === "" || title.includes(q) ? "" : "none";
+      });
+    }
+
+    function clearSearch() {
+      const input = document.getElementById("searchInput");
+      input.value = "";
+      applySearch("");
+    }
+
+    // Basic debounce so it feels smooth
+    let searchTimer = null;
+    function onSearchInput(e) {
+      const val = e.target.value;
+      window.clearTimeout(searchTimer);
+      searchTimer = window.setTimeout(() => applySearch(val), 120);
+    }
+
+    // --- Boot ---
+    renderSections();
+    document.getElementById("searchInput").addEventListener("input", onSearchInput);
+  </script>
 
 </body>
 </html>
