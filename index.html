@@ -1,74 +1,230 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Enter AidanVerse</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-</style>
+  <title>Enter AidanVerse</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" />
+
+  <style>
+    :root {
+      --btn-bg: rgba(215, 215, 215, 0.92);
+      --btn-bg-hover: rgba(255, 255, 255, 0.98);
+      --btn-text: #0b0b0b;
+      --btn-border: rgba(0,0,0,0.9);
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: "Raleway", sans-serif;
+      overflow: hidden;
+      background: #000;
+    }
+
+    body {
+      background-image: url("enter.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0,0,0,0.08),
+        rgba(0,0,0,0.7)
+      );
+      z-index: 0;
+    }
+
+    /* floating dots stay unchanged */
+    .spark-field {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .spark {
+      position: absolute;
+      width: var(--size, 4px);
+      height: var(--size, 4px);
+      border-radius: 999px;
+      left: var(--x, 50%);
+      top: var(--y, 50%);
+      opacity: var(--o, 0.8);
+      background: radial-gradient(circle,
+        rgba(255,255,255,0.95),
+        rgba(255,210,120,0.65),
+        rgba(255,210,120,0));
+      animation:
+        drift var(--dur, 12s) ease-in-out infinite,
+        twinkle var(--tw, 2.4s) ease-in-out infinite;
+    }
+
+    @keyframes drift {
+      0%,100% { transform: translate(0,0); }
+      50% { transform: translate(var(--dx), var(--dy)); }
+    }
+
+    @keyframes twinkle {
+      0%,100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* center container */
+    .center-stage {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ===== THE BUTTON ===== */
+    .enter-button {
+      position: relative;
+      appearance: none;
+      border: 2px solid var(--btn-border);
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      font-size: clamp(20px, 2.3vw, 28px);
+      padding: 20px 48px;
+      border-radius: 16px;
+      cursor: pointer;
+      letter-spacing: 0.6px;
+      font-weight: 600;
+      isolation: isolate;
+
+      box-shadow:
+        0 18px 60px rgba(0,0,0,0.75),
+        0 0 40px rgba(255,210,120,0.25),
+        0 0 80px rgba(120,200,255,0.15);
+
+      animation: breathe 3.2s ease-in-out infinite;
+      transition:
+        transform 220ms ease,
+        box-shadow 220ms ease,
+        background 220ms ease;
+    }
+
+    /* chromatic aura */
+    .enter-button::before {
+      content: "";
+      position: absolute;
+      inset: -22px;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,180,220,0.35), transparent 45%),
+        radial-gradient(circle at 80% 30%, rgba(120,200,255,0.35), transparent 45%),
+        radial-gradient(circle at 50% 80%, rgba(255,210,120,0.35), transparent 55%);
+      filter: blur(16px);
+      opacity: 0.85;
+      z-index: -1;
+      animation: auraShift 6s ease-in-out infinite;
+    }
+
+    /* subtle internal sheen */
+    .enter-button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: linear-gradient(
+        120deg,
+        transparent 30%,
+        rgba(255,255,255,0.35) 45%,
+        transparent 60%
+      );
+      opacity: 0.4;
+      transform: translateX(-120%);
+      animation: sheen 3.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .enter-button:hover {
+      background: var(--btn-bg-hover);
+      transform: scale(1.05);
+      box-shadow:
+        0 24px 80px rgba(0,0,0,0.85),
+        0 0 60px rgba(255,210,120,0.4),
+        0 0 120px rgba(120,200,255,0.25);
+    }
+
+    .enter-button:active {
+      transform: scale(0.96);
+      box-shadow:
+        0 0 30px rgba(255,255,255,0.9);
+    }
+
+    @keyframes breathe {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    @keyframes auraShift {
+      0%,100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes sheen {
+      0% { transform: translateX(-120%); }
+      50% { transform: translateX(120%); }
+      100% { transform: translateX(120%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .enter-button,
+      .enter-button::before,
+      .enter-button::after,
+      .spark {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <script>
+    function redirectToAnotherPage() {
+      window.location.href = "directory.html";
+    }
+
+    function rand(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const field = document.getElementById("sparkField");
+      for (let i = 0; i < 36; i++) {
+        const s = document.createElement("div");
+        s.className = "spark";
+        s.style.setProperty("--size", rand(2,6) + "px");
+        s.style.setProperty("--x", rand(0,100) + "%");
+        s.style.setProperty("--y", rand(0,100) + "%");
+        s.style.setProperty("--o", rand(0.4,1));
+        s.style.setProperty("--dur", rand(8,18) + "s");
+        s.style.setProperty("--tw", rand(1.6,3.2) + "s");
+        s.style.setProperty("--dx", rand(-80,80) + "px");
+        s.style.setProperty("--dy", rand(-60,60) + "px");
+        field.appendChild(s);
+      }
+    });
+  </script>
 </head>
-<body class="w3-black w3-content" style="max-width:2000px">
-    <head>
-        <style>
-            body {
-                background-image: url("enter.jpg");
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-            }
-          /* Style for the button container */
-          .button-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-          }
-      
-          /* Style for the button */
-          .large-button {
-            font-size: 24px;
-            padding: 20px 40px;
-            background-color: #ccc;
-            transition: background-color 0.3s ease;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            border: 2px solid black; /* Added border style */
-            box-shadow: 0 0 50px 30px rgba(0, 0, 0, 5); /* Added box shadow */
-          }
-      
-          /* Style for the button text */
-          .large-button span {
-            position: relative;
-            z-index: 1;
-          }
-      
-          /* Style for the button on hover */
-          .large-button:hover {
-            background-color: #ff0000; /* Change to your desired hover color */
-          }
-        </style>
-        <script>
-            function redirectToAnotherPage() {
-              window.location.href = 'directory.html'; // Replace with the filename of the target HTML file
-            }
-        </script>
-      </head>
-      <body>
-        <div class="button-container">
-          <button class="large-button" onclick="redirectToAnotherPage()">
-            <span>Enter the AidanVerse</span>
-          </button>
-        </div>
 
+<body>
+  <div id="sparkField" class="spark-field"></div>
 
-
-
-
-
+  <div class="center-stage">
+    <button class="enter-button" onclick="redirectToAnotherPage()">
+      Enter the AidanVerse
+    </button>
+  </div>
 </body>
 </html>
